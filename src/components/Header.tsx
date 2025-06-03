@@ -9,7 +9,7 @@ const Header = () => {
     { name: "Главная", href: "#home" },
     { name: "О нас", href: "#about" },
     { name: "Услуги", href: "#services" },
-    { name: "Прайс", href: "#pricing" },
+    { name: "Цены", href: "#pricing" },
     { name: "Галерея", href: "#gallery" },
     { name: "Отзывы", href: "#testimonials" },
     { name: "Контакты", href: "#contact" },
@@ -17,19 +17,15 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-      <div className="container mx-auto px-4 py-4">
+    <header className="fixed top-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 z-50">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🎷</span>
-            </div>
+          <div className="flex items-center space-x-3">
+            <div className="text-2xl">🎷</div>
             <div>
-              <h1 className="font-montserrat font-bold text-xl text-slate-800">
-                SaxMaster
-              </h1>
-              <p className="text-xs text-gray-600">Мастерская ремонта</p>
+              <h1 className="text-xl font-medium text-gray-900">SaxMaster</h1>
+              <p className="text-xs text-gray-500">Ремонт саксофонов</p>
             </div>
           </div>
 
@@ -39,7 +35,7 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-amber-600 transition-colors font-medium"
+                className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
               >
                 {item.name}
               </a>
@@ -48,8 +44,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button className="bg-amber-600 hover:bg-amber-700">
-              <Icon name="Phone" size={16} />
+            <Button className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 text-sm">
               Записаться
             </Button>
           </div>
@@ -59,26 +54,25 @@ const Header = () => {
             className="lg:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Icon name={isMenuOpen ? "X" : "Menu"} size={24} />
+            <Icon name={isMenuOpen ? "X" : "Menu"} size={20} />
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-3 pt-4">
+          <div className="lg:hidden mt-6 pb-6 border-t border-gray-100">
+            <nav className="flex flex-col space-y-4 pt-6">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-amber-600 transition-colors font-medium py-2"
+                  className="text-gray-600 hover:text-gray-900 transition-colors text-sm py-1"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
-              <Button className="bg-amber-600 hover:bg-amber-700 mt-4">
-                <Icon name="Phone" size={16} />
+              <Button className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 text-sm mt-4">
                 Записаться
               </Button>
             </nav>
